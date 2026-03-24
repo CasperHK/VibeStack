@@ -19,21 +19,17 @@ const mainNavItems: NavItem[] = [
   {
     label: "Analytics",
     icon: "analytics",
-    children: [
-      { label: "Overview", href: "#" },
-      { label: "Reports", href: "#" },
-      { label: "Real-time", href: "#" },
-    ],
+    href: "/analytics",
   },
   {
-    label: "Projects",
+    label: "Products",
     icon: "projects",
-    href: "#",
+    href: "/products",
   },
   {
-    label: "Team",
+    label: "Profile",
     icon: "team",
-    href: "#",
+    href: "/profile",
   },
   {
     label: "Messages",
@@ -49,7 +45,7 @@ const mainNavItems: NavItem[] = [
 ];
 
 const secondaryNavItems: NavItem[] = [
-  { label: "Settings", icon: "settings", href: "#" },
+  { label: "Settings", icon: "settings", href: "/settings" },
   { label: "Help & Support", icon: "help", href: "#" },
 ];
 

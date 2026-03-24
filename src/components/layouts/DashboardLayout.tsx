@@ -1,26 +1,34 @@
 import { Component, JSX, onMount } from "solid-js";
-import Sidebar from "./Sidebar";
-import Navbar from "./Navbar";
+import Sidebar from "../../Sidebar";
+import Navbar from "../../Navbar";
 
-interface NestedPageLayoutProps {
+interface DashboardLayoutProps {
   children: JSX.Element;
 }
 
-const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
+const DashboardLayout: Component<DashboardLayoutProps> = (props) => {
   onMount(async () => {
+    // Initialize Flowbite interactive components on client
     const { initFlowbite } = await import("flowbite");
     initFlowbite();
   });
 
   return (
     <div class="min-h-screen bg-dark-900 grid-pattern">
+      {/* Top Navbar — horizontal bar of the "L" */}
       <Navbar />
+
+      {/* Left Sidebar — vertical bar of the "L" */}
       <Sidebar />
 
+      {/* Main Content — fills the remaining space */}
       <main class="p-4 sm:ml-64 mt-16">
-        <div class="p-2 md:p-4">{props.children}</div>
+        <div class="p-2 md:p-4">
+          {props.children}
+        </div>
       </main>
 
+      {/* Footer Status Bar */}
       <footer class="fixed bottom-0 left-0 z-30 w-full sm:ml-64">
         <div class="futuristic-navbar px-4 py-2 flex items-center justify-between text-xs text-gray-500">
           <div class="flex items-center space-x-4">
@@ -44,4 +52,4 @@ const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
   );
 };
 
-export default NestedPageLayout;
+export default DashboardLayout;

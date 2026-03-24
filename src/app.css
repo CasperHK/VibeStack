@@ -155,3 +155,105 @@ body {
 .futuristic-table-row:hover {
   background: var(--color-glass-white-5);
 }
+
+/* ===== Light Mode Overrides ===== */
+html.light {
+  background-color: #f1f5f9;
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+html.light .futuristic-sidebar {
+  background: rgba(255, 255, 255, 0.9);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+html.light .futuristic-sidebar .text-gray-400 {
+  color: #475569;
+}
+html.light .futuristic-sidebar .text-gray-200 {
+  color: #1e293b;
+}
+html.light .futuristic-sidebar .text-gray-500 {
+  color: #64748b;
+}
+html.light .futuristic-sidebar a:hover,
+html.light .futuristic-sidebar button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+html.light .futuristic-navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+}
+
+html.light .futuristic-navbar .text-gray-400 {
+  color: #475569;
+}
+html.light .futuristic-navbar .text-gray-200 {
+  color: #1e293b;
+}
+html.light .futuristic-navbar input {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #1e293b;
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .glass-card-strong {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+html.light .text-gray-400 {
+  color: #475569;
+}
+html.light .text-gray-300 {
+  color: #334155;
+}
+html.light .text-gray-500 {
+  color: #64748b;
+}
+html.light .text-white {
+  color: #0f172a;
+}
+
+html.light .grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+html.light .futuristic-table-row:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html.light .bg-dark-800,
+html.light .bg-dark-900 {
+  background-color: #ffffff;
+}
+
+html.light select option {
+  background-color: #ffffff;
+  color: #0f172a;
+}
