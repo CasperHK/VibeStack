@@ -38,23 +38,26 @@
 ```
 
 
-🚀 30 秒快速上手
-Bashbun create vibestack my-app
+## 🚀 30 秒快速上手
+```Bash
+bun create vibestack my-app
 cd my-app
 bun install
 bun dev
+```
 開發指令：
 Bashbun dev          # 同時啟動 Elysia + SolidStart
 bun typecheck    # 每次 vibe 後強烈建議執行
 bun build
+```
 
-🔥 Contract-First Vibe Coding 流程
+## 🔥 Contract-First Vibe Coding 流程
 這是達到 Zero-Hallucination 的核心秘訣：
 
-修改 Schema → packages/shared/src/schemas.ts（ArkType）
-更新後端 → apps/web/src/server/api.ts（Elysia + Eden Treaty）
-執行型別檢查 → bun typecheck
-讓 AI Vibe 前端 → SolidStart components
+* 修改 Schema → packages/shared/src/schemas.ts（ArkType）
+* 更新後端 → apps/web/src/server/api.ts（Elysia + Eden Treaty）
+* 執行型別檢查 → bun typecheck
+* 讓 AI Vibe 前端 → SolidStart components
 
 只要嚴格跟隨這個順序，AI 就會變得異常聽話。
 
