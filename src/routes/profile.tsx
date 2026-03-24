@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { Title } from "@solidjs/meta";
-import NestedPageLayout from "~/components/NestedPageLayout";
+import NestedPageLayout from "~/components/layouts/NestedPageLayout";
 import Card from "~/components/ui/Card";
 import Button from "~/components/ui/Button";
 import Input from "~/components/ui/Input";
@@ -92,7 +92,7 @@ const Profile: Component = () => {
                 id="name"
                 label="Full Name"
                 value={name()}
-                onInput={(e) => setName(e.currentTarget.value)}
+                onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setName(e.currentTarget.value)}
                 placeholder="Your full name"
               />
               <Input
@@ -100,7 +100,7 @@ const Profile: Component = () => {
                 label="Email Address"
                 type="email"
                 value={email()}
-                onInput={(e) => setEmail(e.currentTarget.value)}
+                onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setEmail(e.currentTarget.value)}
                 placeholder="you@example.com"
               />
               <Input
@@ -108,7 +108,7 @@ const Profile: Component = () => {
                 label="Phone Number"
                 type="tel"
                 value={phone()}
-                onInput={(e) => setPhone(e.currentTarget.value)}
+                onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setPhone(e.currentTarget.value)}
                 placeholder="+1 (555) 000-0000"
               />
               <Input

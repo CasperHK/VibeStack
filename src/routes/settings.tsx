@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { Title } from "@solidjs/meta";
-import NestedPageLayout from "~/components/NestedPageLayout";
+import NestedPageLayout from "~/components/layouts/NestedPageLayout";
 import Card from "~/components/ui/Card";
 import Button from "~/components/ui/Button";
 import Input from "~/components/ui/Input";
@@ -102,7 +102,7 @@ const Settings: Component = () => {
               id="store-name"
               label="Store Name"
               value={storeName()}
-              onInput={(e) => setStoreName(e.currentTarget.value)}
+              onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setStoreName(e.currentTarget.value)}
               placeholder="My Store"
             />
 
@@ -127,7 +127,7 @@ const Settings: Component = () => {
               label="Tax Rate (%)"
               type="number"
               value={taxRate()}
-              onInput={(e) => setTaxRate(e.currentTarget.value)}
+              onInput={(e: InputEvent & { currentTarget: HTMLInputElement }) => setTaxRate(e.currentTarget.value)}
               placeholder="0.00"
             />
           </div>
