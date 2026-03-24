@@ -127,7 +127,7 @@ const Profile: Component = () => {
                 rows={4}
                 class="w-full px-4 py-2.5 text-sm text-white bg-white/5 border border-white/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-neon-cyan/50 focus:border-neon-cyan/50 placeholder-gray-500 transition-all duration-200 resize-none"
                 value={bio()}
-                onInput={(e) => setBio(e.currentTarget.value)}
+                onInput={(e: InputEvent & { currentTarget: HTMLTextAreaElement }) => setBio(e.currentTarget.value)}
                 placeholder="Tell us about yourself..."
               />
             </div>

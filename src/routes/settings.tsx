@@ -26,6 +26,12 @@ const Toggle: Component<{ checked: boolean; onChange: () => void; label: string;
   </div>
 );
 
+const securityItems = [
+  { label: "Two-Factor Authentication", status: "Enabled", statusClass: "text-neon-emerald" },
+  { label: "Active Sessions", status: "2 devices", statusClass: "text-neon-cyan" },
+  { label: "Last Login", status: "Today at 09:41", statusClass: "text-gray-400" },
+];
+
 const Settings: Component = () => {
   const { theme, toggleTheme } = useTheme();
   const [storeName, setStoreName] = createSignal("VibeStack Store");
@@ -160,14 +166,10 @@ const Settings: Component = () => {
         {/* Security */}
         <Card title="Security" subtitle="Protect your account">
           <div class="space-y-3">
-            {[
-              { label: "Two-Factor Authentication", status: "Enabled", color: "neon-emerald" },
-              { label: "Active Sessions", status: "2 devices", color: "neon-cyan" },
-              { label: "Last Login", status: "Today at 09:41", color: "gray-400" },
-            ].map((item) => (
+            {securityItems.map((item) => (
               <div class="flex items-center justify-between py-2.5 px-3 rounded-lg bg-white/5">
                 <span class="text-sm text-gray-300">{item.label}</span>
-                <span class={`text-xs font-medium text-${item.color}`}>{item.status}</span>
+                <span class={`text-xs font-medium ${item.statusClass}`}>{item.status}</span>
               </div>
             ))}
             <div class="pt-2">
