@@ -45,8 +45,10 @@ cd my-app
 bun install
 bun dev
 ```
+
 開發指令：
-Bashbun dev          # 同時啟動 Elysia + SolidStart
+```Bash
+bun dev          # 同時啟動 Elysia + SolidStart
 bun typecheck    # 每次 vibe 後強烈建議執行
 bun build
 ```
@@ -72,7 +74,8 @@ bun build
 * 小步迭代：一次只 vibe 一個 endpoint + 對應 UI
 
 推薦 Prompt 前綴（每次讓 AI vibe 前複製）
-Markdown你是 VibeStack 專家，必須嚴格遵守 .cursor/rules/ 所有鐵律。
+```Markdown
+你是 VibeStack 專家，必須嚴格遵守 .cursor/rules/ 所有鐵律。
 
 - Contract First：先確認 shared ArkType schema 最新狀態
 - 所有 schema 必須來自 @shared/schemas，並使用 ArkType
@@ -81,12 +84,19 @@ Markdown你是 VibeStack 專家，必須嚴格遵守 .cursor/rules/ 所有鐵律
 - 嚴格 TypeScript strict mode，零 any
 
 現在請幫我生成...
+```
 
-🛠 Tech Stack
+## 🛠 Tech Stack
 
 | 層級 | 技術 | 亮點 |
+|---|---|---|
 | Runtime | Bun | 極速啟動與執行 |
-| Backend | Elysia + Eden Treaty高性能 + 原生型別安全FrontendSolidStartFine-grained reactivity，極致響應SchemaArkType極速驗證 + 優秀 TS 推斷MonorepoTurborepo閃電 build 與 typecheckORMDrizzle ORM（推薦）型別安全 + Bun 原生友好Deployment單一容器 Docker簡單、輕量、生產就緒
+| Backend | Elysia + Eden Treaty | 高性能 + 原生型別安全 |
+| Frontend | SolidStart | Fine-grained reactivity，極致響應
+| Schema | ArkType | 極速驗證 + 優秀 TS 推斷 |
+| Monorepo | Turborepo | 閃電 build 與 typecheck | 
+| ORM | Drizzle ORM（推薦）| 型別安全 + Bun 原生友好 | 
+| Deployment | 單一容器Docker | 簡單、輕量、生產就緒 |
 
 ## 📦 一鍵部署（單一容器）
 ```Bash
