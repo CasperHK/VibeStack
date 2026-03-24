@@ -10,14 +10,33 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# SolidStart
+# Turborepo
+.turbo/
+
+# SolidStart / Vinxi
 .solid/
+.vinxi/
 .output/
 dist/
 build/
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment
 .env
 .env.local
 .env.*.local
+docker/.env.prod
+
+# Drizzle
+drizzle/meta/_journal.json
+
+# Docker
+docker/*.log
+
+# Logs
+*.log
 
 # IDE
 .vscode/
