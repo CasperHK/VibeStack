@@ -9,11 +9,11 @@
     "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
+    "@motionone/dom": "^10.18.0",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.15.3",
     "@solidjs/start": "^1.1.0",
     "flowbite": "^3.1.2",
-    "motion": "^12.38.0",
     "solid-js": "^1.9.5",
     "vinxi": "^0.5.3"
   },

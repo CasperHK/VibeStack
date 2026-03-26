@@ -1,5 +1,5 @@
 import { useLocation } from "@solidjs/router";
-import { animate } from "motion";
+import { animate } from "@motionone/dom";
 import { Component, createEffect, JSX, on, onMount } from "solid-js";
 import Sidebar from "@components/Sidebar";
 import Navbar from "@components/Navbar";
@@ -27,7 +27,7 @@ const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
     animate(
       contentRef,
       { opacity: [0, 1], y: [16, 0] },
-      { duration: 0.35, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+      { duration: 0.35, easing: "ease-out" }
     );
   };
 
