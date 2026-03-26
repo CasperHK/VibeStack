@@ -1,4 +1,6 @@
-import { Component, JSX, onMount } from "solid-js";
+import { useLocation } from "@solidjs/router";
+import { animate } from "motion";
+import { Component, createEffect, JSX, on, onMount } from "solid-js";
 import Sidebar from "@components/Sidebar";
 import Navbar from "@components/Navbar";
 
@@ -7,10 +9,43 @@ interface NestedPageLayoutProps {
 }
 
 const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
+  const location = useLocation();
+  let contentRef: HTMLDivElement | undefined;
+
+  const animateContent = () => {
+    if (!contentRef) {
+      return;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      animate(contentRef, { opacity: [0, 1] }, { duration: 0.2, easing: "ease-out" });
+      return;
+    }
+
+    animate(
+      contentRef,
+      { opacity: [0, 1], y: [16, 0] },
+      { duration: 0.35, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+    );
+  };
+
   onMount(async () => {
     const { initFlowbite } = await import("flowbite");
     initFlowbite();
+
+    animateContent();
   });
+
+  createEffect(
+    on(
+      () => location.pathname,
+      () => {
+        animateContent();
+      }
+    )
+  );
 
   return (
     <div class="min-h-screen bg-dark-900 grid-pattern">
@@ -18,7 +53,7 @@ const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
       <Sidebar />
 
       <main class="p-4 sm:ml-64 mt-16">
-        <div class="p-2 md:p-4">{props.children}</div>
+        <div ref={contentRef} class="p-2 md:p-4">{props.children}</div>
       </main>
 
       <footer class="fixed bottom-0 left-0 z-30 w-full sm:ml-64">

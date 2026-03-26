@@ -28,11 +28,6 @@ const mainNavItems: NavItem[] = [
     href: "/products",
   },
   {
-    label: "Profile",
-    icon: "team",
-    href: "/profile",
-  },
-  {
     label: "Messages",
     icon: "messages",
     href: "#",
