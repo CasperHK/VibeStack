@@ -1,6 +1,6 @@
 import { Component, JSX, onMount } from "solid-js";
-import Sidebar from "../Sidebar";
-import Navbar from "../Navbar";
+import Sidebar from "@components/Sidebar";
+import Navbar from "@components/Navbar";
 
 interface NestedPageLayoutProps {
   children: JSX.Element;

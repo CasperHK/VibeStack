@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import DashboardLayout from "~/components/layouts/DashboardLayout";
+import DashboardLayout from "@layouts/DashboardLayout";
 import StatCards from "~/components/StatCards";
 import ChartCard from "~/components/ChartCard";
 import RecentOrders from "~/components/RecentOrders";

@@ -1,4 +1,5 @@
 import { Component, createSignal, For } from "solid-js";
+import ProfileButton from "@components/ProfileButton";
 
 interface NavItem {
   label: string;
@@ -236,23 +237,7 @@ const Sidebar: Component = () => {
           </button>
         </div>
 
-        {/* User Profile */}
-        <div class="mt-4 p-3 rounded-xl bg-white/5 flex items-center">
-          <img
-            class="w-9 h-9 rounded-full ring-2 ring-neon-cyan/30"
-            src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
-            alt="User"
-          />
-          <div class="ml-3 min-w-0">
-            <p class="text-sm font-medium text-gray-200 truncate">Alex Chen</p>
-            <p class="text-xs text-gray-500 truncate">alex@vibestack.dev</p>
-          </div>
-          <button class="ml-auto text-gray-500 hover:text-gray-300 transition-colors">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-            </svg>
-          </button>
-        </div>
+        <ProfileButton />
       </div>
     </aside>
   );

@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js";
 import { Title } from "@solidjs/meta";
-import NestedPageLayout from "~/components/layouts/NestedPageLayout";
+import NestedPageLayout from "@layouts/NestedPageLayout";
 import Card from "~/components/ui/Card";
 import Button from "~/components/ui/Button";
 import Input from "~/components/ui/Input";

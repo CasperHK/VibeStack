@@ -1,6 +1,6 @@
 import { Component, For } from "solid-js";
 import { Title } from "@solidjs/meta";
-import NestedPageLayout from "~/components/layouts/NestedPageLayout";
+import NestedPageLayout from "@layouts/NestedPageLayout";
 import Card from "~/components/ui/Card";
 
 interface KPI {

@@ -4,7 +4,9 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "@solidjs/meta": "^0.29.4",
@@ -15,7 +17,11 @@
     "vinxi": "^0.5.3"
   },
   "devDependencies": {
+    "@eslint/js": "^9.23.0",
     "@tailwindcss/postcss": "^4.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^9.23.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.0"
   }
