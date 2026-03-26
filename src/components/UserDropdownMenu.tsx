@@ -1,4 +1,4 @@
-import { Component, createSignal } from "solid-js";
+import { Component, Show, createSignal } from "solid-js";
 import ConfirmLogoutDialog from "@dialogs/ConfirmLogoutDialog";
 
 const UserDropdownMenu: Component = () => {
@@ -68,11 +68,12 @@ const UserDropdownMenu: Component = () => {
 				</div>
 			</div>
 
-			<ConfirmLogoutDialog
-				open={logoutDialogOpen()}
-				onCancel={closeLogoutDialog}
-				onConfirm={confirmLogout}
-			/>
+			<Show when={logoutDialogOpen()}>
+				<ConfirmLogoutDialog
+					onCancel={closeLogoutDialog}
+					onConfirm={confirmLogout}
+				/>
+			</Show>
 		</>
 	);
 };

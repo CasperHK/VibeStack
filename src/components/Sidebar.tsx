@@ -1,3 +1,4 @@
+import { useLocation } from "@solidjs/router";
 import { Component, createSignal, For } from "solid-js";
 import ProfileButton from "@components/ProfileButton";
 
@@ -6,7 +7,6 @@ interface NavItem {
   icon: string;
   href?: string;
   badge?: string;
-  active?: boolean;
   children?: { label: string; href: string }[];
 }
 
@@ -15,7 +15,6 @@ const mainNavItems: NavItem[] = [
     label: "Dashboard",
     icon: "dashboard",
     href: "/",
-    active: true,
   },
   {
     label: "Analytics",
@@ -102,7 +101,20 @@ function getIcon(name: string) {
 }
 
 const Sidebar: Component = () => {
+  const location = useLocation();
   const [openDropdown, setOpenDropdown] = createSignal<string | null>(null);
+
+  const isActiveRoute = (href?: string) => {
+    if (!href || href === "#") {
+      return false;
+    }
+
+    if (href === "/") {
+      return location.pathname === "/";
+    }
+
+    return location.pathname === href || location.pathname.startsWith(`${href}/`);
+  };
 
   const toggleDropdown = (label: string) => {
     setOpenDropdown(openDropdown() === label ? null : label);
@@ -177,12 +189,12 @@ const Sidebar: Component = () => {
                   <a
                     href={item.href}
                     class={`flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 group ${
-                      item.active
+                      isActiveRoute(item.href)
                         ? "nav-item-active text-neon-cyan"
                         : "text-gray-400 hover:text-gray-200 hover:bg-white/5"
                     }`}
                   >
-                    <span class={`shrink-0 transition-colors duration-200 ${item.active ? "text-neon-cyan" : "group-hover:text-neon-cyan"}`}>
+                    <span class={`shrink-0 transition-colors duration-200 ${isActiveRoute(item.href) ? "text-neon-cyan" : "group-hover:text-neon-cyan"}`}>
                       {getIcon(item.icon)}
                     </span>
                     <span class="flex-1 ms-3 whitespace-nowrap">{item.label}</span>
@@ -208,9 +220,13 @@ const Sidebar: Component = () => {
             {(item) => (
               <a
                 href={item.href}
-                class="flex items-center px-3 py-2.5 text-sm font-medium text-gray-400 rounded-lg hover:text-gray-200 hover:bg-white/5 transition-all duration-200 group"
+                class={`flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 group ${
+                  isActiveRoute(item.href)
+                    ? "nav-item-active text-neon-cyan"
+                    : "text-gray-400 hover:text-gray-200 hover:bg-white/5"
+                }`}
               >
-                <span class="shrink-0 transition-colors duration-200 group-hover:text-neon-cyan">
+                <span class={`shrink-0 transition-colors duration-200 ${isActiveRoute(item.href) ? "text-neon-cyan" : "group-hover:text-neon-cyan"}`}>
                   {getIcon(item.icon)}
                 </span>
                 <span class="flex-1 ms-3 whitespace-nowrap">{item.label}</span>

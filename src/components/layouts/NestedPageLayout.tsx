@@ -33,7 +33,9 @@ const NestedPageLayout: Component<NestedPageLayoutProps> = (props) => {
 
   onMount(async () => {
     const { initFlowbite } = await import("flowbite");
-    initFlowbite();
+    requestAnimationFrame(() => {
+      initFlowbite();
+    });
 
     animateContent();
   });

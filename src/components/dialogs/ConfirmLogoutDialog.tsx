@@ -1,7 +1,7 @@
-import { Component, Show, createEffect, onCleanup } from "solid-js";
+import { Component, createEffect, onCleanup } from "solid-js";
+import { Portal } from "solid-js/web";
 
 interface ConfirmLogoutDialogProps {
-	open: boolean;
 	onConfirm: () => void;
 	onCancel: () => void;
 }
@@ -10,10 +10,6 @@ const ConfirmLogoutDialog: Component<ConfirmLogoutDialogProps> = (props) => {
 	let dialogRef: HTMLDivElement | undefined;
 
 	createEffect(() => {
-		if (!props.open) {
-			return;
-		}
-
 		const handleKeyDown = (e: KeyboardEvent) => {
 			if (e.key === "Escape") {
 				props.onCancel();
@@ -31,10 +27,10 @@ const ConfirmLogoutDialog: Component<ConfirmLogoutDialogProps> = (props) => {
 	};
 
 	return (
-		<Show when={props.open}>
+		<Portal>
 			<div
 				ref={dialogRef}
-				class="fixed inset-0 z-[60] flex items-center justify-center bg-dark-900/70 backdrop-blur-sm transition-opacity"
+				class="fixed inset-0 z-[60] w-screen h-screen flex items-center justify-center bg-dark-900/70 backdrop-blur-sm transition-opacity"
 				onClick={handleBackdropClick}
 				role="dialog"
 				aria-modal="true"
@@ -77,7 +73,7 @@ const ConfirmLogoutDialog: Component<ConfirmLogoutDialogProps> = (props) => {
 					</div>
 				</div>
 			</div>
-		</Show>
+		</Portal>
 	);
 };
 

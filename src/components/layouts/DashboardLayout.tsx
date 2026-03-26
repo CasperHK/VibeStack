@@ -8,9 +8,11 @@ interface DashboardLayoutProps {
 
 const DashboardLayout: Component<DashboardLayoutProps> = (props) => {
   onMount(async () => {
-    // Initialize Flowbite interactive components on client
+    // Defer Flowbite init until after hydration to avoid DOM mutation races.
     const { initFlowbite } = await import("flowbite");
-    initFlowbite();
+    requestAnimationFrame(() => {
+      initFlowbite();
+    });
   });
 
   return (
